@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "id": "L40-solution-v1",
+  "levelId": "L40",
+  "title": "Skybridge Extraction",
+  "mechanic": {
+    "district": "C08",
+    "mode": "actor-critic",
+    "focus": "policy",
+    "requiredCapability": "signal-safe"
+  },
+  "patchRoute": [
+    "latch",
+    "securityLever1",
+    "patchRelayCell1",
+    "patchRelaySocket1",
+    "relayDock1",
+    "securityLever2",
+    "securityLever3",
+    "patchRelayCell2",
+    "patchRelaySocket2",
+    "relayDock2",
+    "securityLever4",
+    "patchRelayCell3",
+    "patchRelaySocket3",
+    "relayDock3",
+    "receiverControl",
+    "patchRelayCell4",
+    "patchRelaySocket4",
+    "practiceDock"
+  ],
+  "echoRuns": 4,
+  "stages": [
+    {
+      "index": 0,
+      "id": "relay-1",
+      "label": "SIGNAL PROBE",
+      "requiredCapability": "signal-safe",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "latch",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 0
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 0
+        },
+        {
+          "op": "collect-capability",
+          "targetId": "capability2",
+          "room": 0,
+          "capabilityId": "signal-safe"
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock1",
+          "room": 0
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "actor-critic",
+          "focus": "policy",
+          "requiresCapability": "signal-safe",
+          "authoredBatch": {
+            "episodes": 400,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal1"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "relay-2",
+      "label": "PRESSURE PROBE",
+      "requiredCapability": "signal-safe",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever2",
+          "room": 1
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever3",
+          "room": 2
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell2",
+          "room": 2
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket2",
+          "room": 2
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock2",
+          "room": 2
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "actor-critic",
+          "focus": "policy",
+          "requiresCapability": "signal-safe",
+          "authoredBatch": {
+            "episodes": 400,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal3"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "relay-3",
+      "label": "HAZARD PROBE",
+      "requiredCapability": "signal-safe",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever4",
+          "room": 3
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell3",
+          "room": 3
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket3",
+          "room": 3
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock3",
+          "room": 3
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "actor-critic",
+          "focus": "policy",
+          "requiresCapability": "signal-safe",
+          "authoredBatch": {
+            "episodes": 400,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal4"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "signal-safe",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "receiverControl",
+          "room": 4
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell4",
+          "room": 4
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket4",
+          "room": 4
+        },
+        {
+          "op": "interact",
+          "targetId": "practiceDock",
+          "room": 4
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "actor-critic",
+          "focus": "policy",
+          "requiresCapability": "signal-safe",
+          "authoredBatch": {
+            "episodes": 400,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "collect",
+      "targetId": "skyCore",
+      "room": 4
+    },
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 4
+    }
+  ],
+  "stepCount": 29,
+  "complexity": {
+    "mission": 40,
+    "patchRooms": 5,
+    "echoRooms": 4,
+    "echoRuns": 4,
+    "programSteps": 29
+  }
+}

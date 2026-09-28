@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "id": "L57-solution-v1",
+  "levelId": "L57",
+  "title": "Warden Protocol",
+  "mechanic": {
+    "district": "C12",
+    "mode": "dqn",
+    "focus": "actions",
+    "requiredCapability": "target-steady"
+  },
+  "patchRoute": [
+    "latch",
+    "securityLever1",
+    "patchRelayCell1",
+    "patchRelaySocket1",
+    "relayDock1",
+    "securityLever2",
+    "securityLever3",
+    "patchRelayCell2",
+    "patchRelaySocket2",
+    "relayDock2",
+    "securityLever4",
+    "patchRelayCell3",
+    "patchRelaySocket3",
+    "relayDock3",
+    "securityLever5",
+    "securityLever6",
+    "patchRelayCell4",
+    "patchRelaySocket4",
+    "relayDock4",
+    "receiverControl",
+    "patchRelayCell5",
+    "patchRelaySocket5",
+    "practiceDock"
+  ],
+  "echoRuns": 5,
+  "stages": [
+    {
+      "index": 0,
+      "id": "relay-1",
+      "label": "SIGNAL PROBE",
+      "requiredCapability": "target-steady",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "latch",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 0
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 0
+        },
+        {
+          "op": "collect-capability",
+          "targetId": "capability1",
+          "room": 0,
+          "capabilityId": "target-steady"
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock1",
+          "room": 0
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dqn",
+          "focus": "actions",
+          "requiresCapability": "target-steady",
+          "authoredBatch": {
+            "episodes": 420,
+            "transitionBudget": 10000
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal1"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "relay-2",
+      "label": "PRESSURE PROBE",
+      "requiredCapability": "target-steady",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever2",
+          "room": 1
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever3",
+          "room": 2
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell2",
+          "room": 2
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket2",
+          "room": 2
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock2",
+          "room": 2
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dqn",
+          "focus": "actions",
+          "requiresCapability": "target-steady",
+          "authoredBatch": {
+            "episodes": 420,
+            "transitionBudget": 10000
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal3"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "relay-3",
+      "label": "HAZARD PROBE",
+      "requiredCapability": "target-steady",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever4",
+          "room": 3
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell3",
+          "room": 3
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket3",
+          "room": 3
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock3",
+          "room": 3
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dqn",
+          "focus": "actions",
+          "requiresCapability": "target-steady",
+          "authoredBatch": {
+            "episodes": 420,
+            "transitionBudget": 10000
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal4"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "relay-4",
+      "label": "NIGHT PROBE",
+      "requiredCapability": "target-steady",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever5",
+          "room": 4
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever6",
+          "room": 5
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell4",
+          "room": 5
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket4",
+          "room": 5
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock4",
+          "room": 5
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dqn",
+          "focus": "actions",
+          "requiresCapability": "target-steady",
+          "authoredBatch": {
+            "episodes": 420,
+            "transitionBudget": 10000
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal6"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "target-steady",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "receiverControl",
+          "room": 6
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell5",
+          "room": 6
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket5",
+          "room": 6
+        },
+        {
+          "op": "interact",
+          "targetId": "practiceDock",
+          "room": 6
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dqn",
+          "focus": "actions",
+          "requiresCapability": "target-steady",
+          "authoredBatch": {
+            "episodes": 420,
+            "transitionBudget": 10000
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 6
+    }
+  ],
+  "stepCount": 35,
+  "complexity": {
+    "mission": 57,
+    "patchRooms": 7,
+    "echoRooms": 5,
+    "echoRuns": 5,
+    "programSteps": 35
+  }
+}

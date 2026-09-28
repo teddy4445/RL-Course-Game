@@ -1,0 +1,91 @@
+{
+  "version": "1.0.0",
+  "mode": "event-driven; no timed or mandatory teaching overlay",
+  "strings": {
+    "objectiveSleeping": "Find a battery and wake the little courier.",
+    "objectiveAwake": "Bring both robots to their marked exit pads.",
+    "hintBattery": "Walk to the battery. Press E to pick it up.",
+    "hintSocket": "Bring the battery to the socket. Press E to connect it.",
+    "hintBoot": "Echo is running its fixed boot check. Take the orange exit pad.",
+    "echoSleeping": "Sleeping. Needs a spark."
+  },
+  "beats": [
+    {
+      "id": "O01",
+      "trigger": "landing displayed",
+      "picture": "Dark scrapyard city; Patch orange, Echo white/cyan; title and Enter the city.",
+      "input": "Pointer or keyboard activation of Enter the city.",
+      "audio": "Silent until a user gesture.",
+      "exit": "Menu opens. No forced cutscene."
+    },
+    {
+      "id": "O02",
+      "trigger": "menu entered",
+      "picture": "Full-viewport maintenance lift, both robots, Start the heist.",
+      "input": "Start the heist. Settings and Missions remain available.",
+      "audio": "screen_menu",
+      "exit": "L01 loads after assets are ready."
+    },
+    {
+      "id": "O03",
+      "trigger": "L01 loaded, awake=false, Patch cargo empty",
+      "picture": "Patch at (1,1), battery at (3,1), socket (3,3), sleeping Echo (3,5).",
+      "objectiveKey": "objectiveSleeping",
+      "hintKey": "hintBattery",
+      "input": "Two east moves, then E; adjacency interaction is also legal.",
+      "audio": "patch_step_metal_01 / patch_step_metal_02; patch_carry_pickup",
+      "exit": "batteryA in Patch cargo. No teaching modal."
+    },
+    {
+      "id": "O04",
+      "trigger": "Patch carries batteryA and Echo asleep",
+      "picture": "Battery visible in Patch hands; socket remains visible.",
+      "objectiveKey": "objectiveSleeping",
+      "hintKey": "hintSocket",
+      "input": "Move to socket or face it from an adjacent cell; press E.",
+      "audio": "echo_boot on actual battery delivery",
+      "exit": "batteryA delivered once, Echo awake."
+    },
+    {
+      "id": "O05",
+      "trigger": "Echo awake",
+      "picture": "Echo travels east using its fixed boot self-check; Patch remains controlled by player.",
+      "objectiveKey": "objectiveAwake",
+      "hintKey": "hintBoot",
+      "input": "Patch reaches orange exit (8,6), Echo reaches cyan exit (8,5).",
+      "audio": "Chapter base continues; not a learning-success effect.",
+      "exit": "Both exit predicates and battery delivery are true."
+    },
+    {
+      "id": "O06",
+      "trigger": "mission-clear",
+      "picture": "Small success dialog: A good little heist. Next mission or Replay.",
+      "input": "Next mission opens L02.",
+      "audio": "stinger_heist_clear",
+      "exit": "Save completes L01; L02 unlocked."
+    },
+    {
+      "id": "O07",
+      "trigger": "L02 entered",
+      "picture": "Patch west bay; Echo confined to a blue service lane.",
+      "input": "Latch lever, ready receiver console, approach dock.",
+      "audio": "door_open and terminal_accept on real events",
+      "exit": "Practice and Send Echo available only with both handoffs prepared."
+    },
+    {
+      "id": "O08",
+      "trigger": "L02 dock opened",
+      "picture": "One priority choice: Shiny things / The delivery.",
+      "input": "Practice runs actual learning; Send Echo deploys its current frozen policy.",
+      "audio": "learning_launch / learning_session_complete only, never every update",
+      "exit": "Player sees a real autonomous route; no forced successful outcome."
+    }
+  ],
+  "rules": [
+    "Player controls Patch; Echo is autonomous except its explicitly fixed boot check.",
+    "No auto-advancing text, dialogue typing lock, compulsory quiz, or equation display.",
+    "R retries the room. Compatible cartridge learning persists.",
+    "The tutorial never changes a failed action into success.",
+    "Human comprehension and playtime targets remain untested."
+  ]
+}

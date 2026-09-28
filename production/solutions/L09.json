@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "id": "L09-solution-v1",
+  "levelId": "L09",
+  "title": "What Lies Ahead",
+  "mechanic": {
+    "district": "C02",
+    "mode": "policy-evaluation",
+    "focus": "practice",
+    "requiredCapability": "sense-cargo"
+  },
+  "patchRoute": [
+    "latch",
+    "securityLever1",
+    "patchRelayCell1",
+    "patchRelaySocket1",
+    "relayDock1",
+    "receiverControl",
+    "patchRelayCell2",
+    "patchRelaySocket2",
+    "practiceDock"
+  ],
+  "echoRuns": 2,
+  "stages": [
+    {
+      "index": 0,
+      "id": "relay-1",
+      "label": "SIGNAL PROBE",
+      "requiredCapability": "sense-cargo",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "latch",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 0
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 0
+        },
+        {
+          "op": "collect-capability",
+          "targetId": "capability1",
+          "room": 0,
+          "capabilityId": "sense-cargo"
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock1",
+          "room": 0
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "policy-evaluation",
+          "focus": "practice",
+          "requiresCapability": "sense-cargo",
+          "authoredBatch": {
+            "sweeps": 36
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal1"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "sense-cargo",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "receiverControl",
+          "room": 1
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell2",
+          "room": 1
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket2",
+          "room": 1
+        },
+        {
+          "op": "interact",
+          "targetId": "practiceDock",
+          "room": 1
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "policy-evaluation",
+          "focus": "practice",
+          "requiresCapability": "sense-cargo",
+          "authoredBatch": {
+            "sweeps": 36
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 1
+    }
+  ],
+  "stepCount": 15,
+  "complexity": {
+    "mission": 9,
+    "patchRooms": 2,
+    "echoRooms": 2,
+    "echoRuns": 2,
+    "programSteps": 15
+  }
+}

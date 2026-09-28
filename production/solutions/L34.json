@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "id": "L34-solution-v1",
+  "levelId": "L34",
+  "title": "Outdated Map",
+  "mechanic": {
+    "district": "C07",
+    "mode": "dyna-q",
+    "focus": "practice",
+    "requiredCapability": "model-rehearse"
+  },
+  "patchRoute": [
+    "latch",
+    "securityLever1",
+    "securityLever2",
+    "patchRelayCell1",
+    "patchRelaySocket1",
+    "relayDock1",
+    "securityLever3",
+    "patchRelayCell2",
+    "patchRelaySocket2",
+    "relayDock2",
+    "securityLever4",
+    "receiverControl",
+    "patchRelayCell3",
+    "patchRelaySocket3",
+    "practiceDock"
+  ],
+  "echoRuns": 3,
+  "stages": [
+    {
+      "index": 0,
+      "id": "relay-1",
+      "label": "SIGNAL PROBE",
+      "requiredCapability": "model-rehearse",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "latch",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever2",
+          "room": 1
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 1
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 1
+        },
+        {
+          "op": "collect-capability",
+          "targetId": "capability2",
+          "room": 1,
+          "capabilityId": "model-rehearse"
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock1",
+          "room": 1
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dyna-q",
+          "focus": "practice",
+          "requiresCapability": "model-rehearse",
+          "authoredBatch": {
+            "episodes": 140,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal2"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "relay-2",
+      "label": "PRESSURE PROBE",
+      "requiredCapability": "model-rehearse",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever3",
+          "room": 2
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell2",
+          "room": 2
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket2",
+          "room": 2
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock2",
+          "room": 2
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dyna-q",
+          "focus": "practice",
+          "requiresCapability": "model-rehearse",
+          "authoredBatch": {
+            "episodes": 140,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal3"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "model-rehearse",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever4",
+          "room": 3
+        },
+        {
+          "op": "interact",
+          "targetId": "receiverControl",
+          "room": 4
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell3",
+          "room": 4
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket3",
+          "room": 4
+        },
+        {
+          "op": "interact",
+          "targetId": "practiceDock",
+          "room": 4
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "dyna-q",
+          "focus": "practice",
+          "requiresCapability": "model-rehearse",
+          "authoredBatch": {
+            "episodes": 140,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 4
+    }
+  ],
+  "stepCount": 23,
+  "complexity": {
+    "mission": 34,
+    "patchRooms": 5,
+    "echoRooms": 3,
+    "echoRuns": 3,
+    "programSteps": 23
+  }
+}

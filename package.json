@@ -1,0 +1,33 @@
+{
+  "name": "echo-heist",
+  "version": "0.14.0",
+  "private": true,
+  "type": "module",
+  "description": "Echo Heist: playable twelve-district browser campaign with honest local reinforcement learning",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs dist",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.js",
+    "test:unit": "node --test tests/core.test.js",
+    "test:rl": "node scripts/audit-rl.mjs",
+    "test:integration": "node --test tests/integration.test.js",
+    "validate:content": "node scripts/validate.mjs && node scripts/validate-solutions.mjs",
+    "validate:solutions": "node scripts/validate-solutions.mjs",
+    "lint": "node scripts/syntax.mjs",
+    "typecheck": "tsc -p jsconfig.json",
+    "test:browser": "npm run build && node --test tests/browser.e2e.js",
+    "check": "npm run lint && npm run validate:content && npm test && npm run test:browser",
+    "sync:content": "node scripts/sync-content.mjs",
+    "author:twin-grid": "node scripts/author-twin-grid-campaign.mjs && npm run sync:content",
+    "refine:echo-flow": "node scripts/retire-practice-budget.mjs && npm run sync:content",
+    "test:e2e:offline": "python scripts/browser_test.py",
+    "validate:handoff": "node scripts/validate-handoff.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

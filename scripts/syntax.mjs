@@ -1,0 +1,2 @@
+import fs from 'node:fs';import {execFileSync} from 'node:child_process';
+let count=0;function walk(p){for(const e of fs.readdirSync(p,{withFileTypes:true})){const name=`${p}/${e.name}`;if(e.isDirectory())walk(name);else if(/\.(m?js)$/.test(name)){execFileSync(process.execPath,['--check',name]);count++;}}}for(const p of ['src','scripts','tests'])walk(p);console.log(`${count} JavaScript files passed syntax checks (not a substitute for a full lint ruleset).`);

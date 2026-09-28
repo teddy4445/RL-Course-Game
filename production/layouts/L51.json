@@ -1,0 +1,1376 @@
+{
+  "schemaVersion": 1,
+  "id": "L51",
+  "chapterId": "C11",
+  "contentVersion": "5.4.0",
+  "title": "Follow My Lead",
+  "alignment": {
+    "status": "proposed",
+    "concepts": [
+      "behavioral-cloning",
+      "pre-action-labels"
+    ],
+    "slideEvidence": []
+  },
+  "prerequisites": [
+    "L50"
+  ],
+  "scene": {
+    "theme": "central-tower",
+    "layoutId": "l51-relay-cells-v4",
+    "assetGroup": "c11",
+    "patchRooms": [
+      {
+        "label": "ENTRY",
+        "index": 0
+      },
+      {
+        "label": "WORKSHOP",
+        "index": 1
+      },
+      {
+        "label": "SECURITY",
+        "index": 2
+      },
+      {
+        "label": "RELAY",
+        "index": 3
+      },
+      {
+        "label": "MACHINE",
+        "index": 4
+      },
+      {
+        "label": "VAULT",
+        "index": 5
+      },
+      {
+        "label": "DISPATCH",
+        "index": 6
+      }
+    ],
+    "presentation": "twin-grid-20x20-v2"
+  },
+  "geometry": {
+    "width": 28,
+    "height": 20,
+    "tiles": [
+      "############################",
+      "#ppppp######################",
+      "#ppppp######################",
+      "#ppppp##eee#################",
+      "#ppppp##eee#################",
+      "#ppppp##eee#################",
+      "#ppppp######################",
+      "#ppppp######################",
+      "#pppp#pp#ppp#ppp#ppp#pp#ppp#",
+      "#ppppppp#ppppppp#pppppp#ppp#",
+      "#pppp#pp#ppp#ppp#ppp#pp#ppp#",
+      "#pppp#pp#ppp#ppp#ppp#pp#ppp#",
+      "#pppp#pp#ppp#ppp#p#p#pp#ppp#",
+      "#pppp#pp#ppp#ppp#ppp#pp#ppp#",
+      "#pppp#pp#ppp#ppp#ppp#pp#ppp#",
+      "#pppp#pppppp#ppppppp#pppppp#",
+      "#pppp#pp#ppp#ppp#ppp#pp#ppp#",
+      "#########################p##",
+      "#pppppppppppppppppppppppppp#",
+      "############################"
+    ],
+    "entities": [
+      {
+        "id": "latch",
+        "kind": "lever",
+        "x": 10,
+        "y": 4,
+        "opens": "heavyGate",
+        "checkpoint": true,
+        "field": "patch",
+        "room": 0
+      },
+      {
+        "id": "receiverControl",
+        "kind": "console",
+        "x": 3,
+        "y": 4,
+        "checkpoint": true,
+        "field": "patch",
+        "room": 6
+      },
+      {
+        "id": "practiceDock",
+        "kind": "dock",
+        "x": 11,
+        "y": 15,
+        "stageIndex": 4,
+        "relay": true,
+        "field": "patch",
+        "room": 6
+      },
+      {
+        "id": "heavyGate",
+        "kind": "gate",
+        "x": 18,
+        "y": 8,
+        "patchOnly": true,
+        "field": "patch",
+        "room": 6
+      },
+      {
+        "id": "lessonKey",
+        "kind": "token",
+        "x": 9,
+        "y": 7,
+        "required": true,
+        "sequence": 1,
+        "field": "echo",
+        "room": 0
+      },
+      {
+        "id": "receiver",
+        "kind": "socket",
+        "field": "echo",
+        "room": 0,
+        "x": 9,
+        "y": 11,
+        "accepts": "lessonKey"
+      },
+      {
+        "id": "patchExit",
+        "kind": "exit-patch",
+        "x": 7,
+        "y": 1,
+        "field": "patch",
+        "room": 6
+      },
+      {
+        "id": "securityGate1",
+        "kind": "gate",
+        "x": 16,
+        "y": 15,
+        "patchOnly": true,
+        "field": "patch",
+        "room": 0
+      },
+      {
+        "id": "securityLever1",
+        "kind": "lever",
+        "x": 6,
+        "y": 8,
+        "opens": "patchPortal1",
+        "patchOnly": true,
+        "checkpoint": true,
+        "room": 0,
+        "field": "patch",
+        "opensAfterEcho": true
+      },
+      {
+        "id": "securityGate2",
+        "kind": "gate",
+        "x": 15,
+        "y": 7,
+        "patchOnly": true,
+        "portal": true,
+        "echoUnlock": true,
+        "field": "patch",
+        "room": 1
+      },
+      {
+        "id": "securityLever2",
+        "kind": "lever",
+        "x": 4,
+        "y": 18,
+        "opens": "patchPortal2",
+        "patchOnly": true,
+        "checkpoint": true,
+        "room": 1,
+        "field": "patch"
+      },
+      {
+        "id": "securityGate3",
+        "kind": "gate",
+        "x": 2,
+        "y": 9,
+        "patchOnly": true,
+        "field": "patch",
+        "room": 2
+      },
+      {
+        "id": "securityLever3",
+        "kind": "lever",
+        "x": 9,
+        "y": 2,
+        "opens": "patchPortal3",
+        "patchOnly": true,
+        "checkpoint": true,
+        "room": 2,
+        "field": "patch",
+        "opensAfterEcho": true
+      },
+      {
+        "id": "securityGate4",
+        "kind": "gate",
+        "x": 7,
+        "y": 13,
+        "patchOnly": true,
+        "field": "patch",
+        "room": 3
+      },
+      {
+        "id": "securityLever4",
+        "kind": "lever",
+        "x": 14,
+        "y": 6,
+        "opens": "patchPortal4",
+        "patchOnly": true,
+        "checkpoint": true,
+        "room": 3,
+        "field": "patch",
+        "opensAfterEcho": true
+      },
+      {
+        "id": "securityGate5",
+        "kind": "gate",
+        "x": 12,
+        "y": 16,
+        "patchOnly": true,
+        "portal": true,
+        "echoUnlock": true,
+        "field": "patch",
+        "room": 4
+      },
+      {
+        "id": "securityLever5",
+        "kind": "lever",
+        "x": 1,
+        "y": 9,
+        "opens": "patchPortal5",
+        "patchOnly": true,
+        "checkpoint": true,
+        "room": 4,
+        "field": "patch"
+      },
+      {
+        "id": "securityGate6",
+        "kind": "gate",
+        "x": 18,
+        "y": 1,
+        "patchOnly": true,
+        "field": "patch",
+        "room": 5
+      },
+      {
+        "id": "securityLever6",
+        "kind": "lever",
+        "x": 6,
+        "y": 12,
+        "opens": "patchPortal6",
+        "patchOnly": true,
+        "checkpoint": true,
+        "room": 5,
+        "field": "patch",
+        "opensAfterEcho": true
+      },
+      {
+        "id": "relayDock1",
+        "kind": "dock",
+        "field": "patch",
+        "room": 0,
+        "patchOnly": true,
+        "stageIndex": 0,
+        "relay": true,
+        "x": 13,
+        "y": 1
+      },
+      {
+        "id": "patchRelayCell1",
+        "kind": "battery",
+        "field": "patch",
+        "room": 0,
+        "patchOnly": true,
+        "relayCell": true,
+        "stageIndex": 0,
+        "x": 2,
+        "y": 12
+      },
+      {
+        "id": "patchRelaySocket1",
+        "kind": "socket",
+        "field": "patch",
+        "room": 0,
+        "patchOnly": true,
+        "relayPower": true,
+        "stageIndex": 0,
+        "accepts": "patchRelayCell1",
+        "x": 9,
+        "y": 5
+      },
+      {
+        "id": "relayDock2",
+        "kind": "dock",
+        "field": "patch",
+        "room": 2,
+        "patchOnly": true,
+        "stageIndex": 1,
+        "relay": true,
+        "x": 16,
+        "y": 14
+      },
+      {
+        "id": "patchRelayCell2",
+        "kind": "battery",
+        "field": "patch",
+        "room": 2,
+        "patchOnly": true,
+        "relayCell": true,
+        "stageIndex": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "patchRelaySocket2",
+        "kind": "socket",
+        "field": "patch",
+        "room": 2,
+        "patchOnly": true,
+        "relayPower": true,
+        "stageIndex": 1,
+        "accepts": "patchRelayCell2",
+        "x": 12,
+        "y": 18
+      },
+      {
+        "id": "relayDock3",
+        "kind": "dock",
+        "field": "patch",
+        "room": 3,
+        "patchOnly": true,
+        "stageIndex": 2,
+        "relay": true,
+        "x": 3,
+        "y": 17
+      },
+      {
+        "id": "patchRelayCell3",
+        "kind": "battery",
+        "field": "patch",
+        "room": 3,
+        "patchOnly": true,
+        "relayCell": true,
+        "stageIndex": 2,
+        "x": 10,
+        "y": 10
+      },
+      {
+        "id": "patchRelaySocket3",
+        "kind": "socket",
+        "field": "patch",
+        "room": 3,
+        "patchOnly": true,
+        "relayPower": true,
+        "stageIndex": 2,
+        "accepts": "patchRelayCell3",
+        "x": 17,
+        "y": 2
+      },
+      {
+        "id": "relayDock4",
+        "kind": "dock",
+        "field": "patch",
+        "room": 5,
+        "patchOnly": true,
+        "stageIndex": 3,
+        "relay": true,
+        "x": 13,
+        "y": 5
+      },
+      {
+        "id": "patchRelayCell4",
+        "kind": "battery",
+        "field": "patch",
+        "room": 5,
+        "patchOnly": true,
+        "relayCell": true,
+        "stageIndex": 3,
+        "x": 2,
+        "y": 16
+      },
+      {
+        "id": "patchRelaySocket4",
+        "kind": "socket",
+        "field": "patch",
+        "room": 5,
+        "patchOnly": true,
+        "relayPower": true,
+        "stageIndex": 3,
+        "accepts": "patchRelayCell4",
+        "x": 9,
+        "y": 8
+      },
+      {
+        "id": "patchRelayCell5",
+        "kind": "battery",
+        "field": "patch",
+        "room": 6,
+        "patchOnly": true,
+        "relayCell": true,
+        "stageIndex": 4,
+        "x": 14,
+        "y": 12
+      },
+      {
+        "id": "patchRelaySocket5",
+        "kind": "socket",
+        "field": "patch",
+        "room": 6,
+        "patchOnly": true,
+        "relayPower": true,
+        "stageIndex": 4,
+        "accepts": "patchRelayCell5",
+        "x": 3,
+        "y": 5
+      },
+      {
+        "id": "patchPortal1",
+        "kind": "portal",
+        "field": "patch",
+        "room": 0,
+        "x": 12,
+        "y": 13,
+        "targetRoom": 1,
+        "open": false,
+        "requires": "securityLever1",
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal1Return",
+        "kind": "portal",
+        "field": "patch",
+        "room": 1,
+        "x": 12,
+        "y": 13,
+        "targetRoom": 0,
+        "open": true,
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal2",
+        "kind": "portal",
+        "field": "patch",
+        "room": 1,
+        "x": 7,
+        "y": 6,
+        "targetRoom": 2,
+        "open": false,
+        "requires": "securityLever2",
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal2Return",
+        "kind": "portal",
+        "field": "patch",
+        "room": 2,
+        "x": 7,
+        "y": 6,
+        "targetRoom": 1,
+        "open": true,
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal3",
+        "kind": "portal",
+        "field": "patch",
+        "room": 2,
+        "x": 2,
+        "y": 3,
+        "targetRoom": 3,
+        "open": false,
+        "requires": "securityLever3",
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal3Return",
+        "kind": "portal",
+        "field": "patch",
+        "room": 3,
+        "x": 2,
+        "y": 3,
+        "targetRoom": 2,
+        "open": true,
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal4",
+        "kind": "portal",
+        "field": "patch",
+        "room": 3,
+        "x": 3,
+        "y": 2,
+        "targetRoom": 4,
+        "open": false,
+        "requires": "securityLever4",
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal4Return",
+        "kind": "portal",
+        "field": "patch",
+        "room": 4,
+        "x": 3,
+        "y": 2,
+        "targetRoom": 3,
+        "open": true,
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal5",
+        "kind": "portal",
+        "field": "patch",
+        "room": 4,
+        "x": 4,
+        "y": 5,
+        "targetRoom": 5,
+        "open": false,
+        "requires": "securityLever5",
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal5Return",
+        "kind": "portal",
+        "field": "patch",
+        "room": 5,
+        "x": 4,
+        "y": 5,
+        "targetRoom": 4,
+        "open": true,
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal6",
+        "kind": "portal",
+        "field": "patch",
+        "room": 5,
+        "x": 11,
+        "y": 10,
+        "targetRoom": 6,
+        "open": false,
+        "requires": "securityLever6",
+        "patchOnly": true
+      },
+      {
+        "id": "patchPortal6Return",
+        "kind": "portal",
+        "field": "patch",
+        "room": 6,
+        "x": 11,
+        "y": 10,
+        "targetRoom": 5,
+        "open": true,
+        "patchOnly": true
+      },
+      {
+        "id": "echoHunter1",
+        "kind": "echo-hunter",
+        "field": "echo",
+        "room": 0,
+        "x": 11,
+        "y": 12,
+        "axis": "y",
+        "min": 6,
+        "max": 12,
+        "direction": 1,
+        "speed": 2,
+        "phase": 0,
+        "period": 4,
+        "activePhases": [
+          0
+        ],
+        "echoOnly": true
+      },
+      {
+        "id": "echoPortal1",
+        "kind": "portal",
+        "field": "echo",
+        "room": 0,
+        "x": 9,
+        "y": 11,
+        "targetRoom": 1,
+        "open": true,
+        "echoOnly": true
+      },
+      {
+        "id": "echoPortal2",
+        "kind": "portal",
+        "field": "echo",
+        "room": 1,
+        "x": 9,
+        "y": 11,
+        "targetRoom": 2,
+        "open": true,
+        "echoOnly": true
+      },
+      {
+        "id": "echoPortal3",
+        "kind": "portal",
+        "field": "echo",
+        "room": 2,
+        "x": 9,
+        "y": 11,
+        "targetRoom": 3,
+        "open": true,
+        "echoOnly": true
+      },
+      {
+        "id": "echoPortal4",
+        "kind": "portal",
+        "field": "echo",
+        "room": 3,
+        "x": 9,
+        "y": 11,
+        "targetRoom": 4,
+        "open": true,
+        "echoOnly": true
+      },
+      {
+        "id": "capability1",
+        "kind": "cartridge",
+        "field": "patch",
+        "room": 0,
+        "x": 3,
+        "y": 1,
+        "capabilityId": "lesson-recovery",
+        "choiceGroup": "L51-fork",
+        "correct": true,
+        "patchOnly": true
+      },
+      {
+        "id": "capability2",
+        "kind": "cartridge",
+        "field": "patch",
+        "room": 0,
+        "x": 16,
+        "y": 11,
+        "capabilityId": "lesson-short",
+        "choiceGroup": "L51-fork",
+        "correct": false,
+        "patchOnly": true
+      },
+      {
+        "id": "capability3",
+        "kind": "cartridge",
+        "field": "patch",
+        "room": 0,
+        "x": 16,
+        "y": 5,
+        "capabilityId": "signal-sparse",
+        "choiceGroup": "L51-fork",
+        "correct": false,
+        "patchOnly": true
+      },
+      {
+        "id": "exitGate",
+        "kind": "gate",
+        "field": "patch",
+        "room": 6,
+        "x": 7,
+        "y": 1,
+        "patchOnly": true,
+        "blocksMovement": true,
+        "opensAfterEcho": true,
+        "open": false
+      },
+      {
+        "id": "echoExit",
+        "kind": "exit-echo",
+        "field": "echo",
+        "room": 0,
+        "x": 9,
+        "y": 11
+      }
+    ]
+  },
+  "actors": {
+    "patchSpawn": {
+      "x": 5,
+      "y": 14,
+      "facing": 1,
+      "room": 0
+    },
+    "echoSpawn": {
+      "x": 9,
+      "y": 9,
+      "facing": 1,
+      "room": 0
+    }
+  },
+  "task": {
+    "stages": [
+      "prepare",
+      "demonstrate",
+      "dispatch",
+      "extract"
+    ],
+    "horizonSteps": 30,
+    "horizonBasis": "echo",
+    "administrativeRolloutLimit": 30,
+    "objective": {
+      "op": "all",
+      "children": [
+        {
+          "op": "delivered",
+          "itemId": "lessonKey"
+        },
+        {
+          "op": "exitActivated",
+          "entityId": "patchExit"
+        },
+        {
+          "op": "atExit",
+          "actor": "echo",
+          "entityId": "echoExit"
+        },
+        {
+          "op": "gateLatched",
+          "entityId": "heavyGate"
+        },
+        {
+          "op": "stageComplete",
+          "stage": "receiver-ready"
+        },
+        {
+          "op": "notFailed"
+        }
+      ]
+    },
+    "patchDesignVersion": "progressive-rooms-v1",
+    "patchRoute": [
+      "latch",
+      "securityLever1",
+      "patchRelayCell1",
+      "patchRelaySocket1",
+      "relayDock1",
+      "securityLever2",
+      "securityLever3",
+      "patchRelayCell2",
+      "patchRelaySocket2",
+      "relayDock2",
+      "securityLever4",
+      "patchRelayCell3",
+      "patchRelaySocket3",
+      "relayDock3",
+      "securityLever5",
+      "securityLever6",
+      "patchRelayCell4",
+      "patchRelaySocket4",
+      "relayDock4",
+      "receiverControl",
+      "patchRelayCell5",
+      "patchRelaySocket5",
+      "practiceDock"
+    ],
+    "patchRequirements": [
+      "latch",
+      "securityLever1",
+      "patchRelaySocket1",
+      "securityLever2",
+      "securityLever3",
+      "patchRelaySocket2",
+      "securityLever4",
+      "patchRelaySocket3",
+      "securityLever5",
+      "securityLever6",
+      "patchRelaySocket4",
+      "receiverControl",
+      "patchRelaySocket5"
+    ],
+    "patchRoomCount": 7,
+    "patchSentryCount": 0,
+    "patchPatrolRooms": [],
+    "echoStages": [
+      {
+        "id": "relay-1",
+        "dockId": "relayDock1",
+        "gateId": "patchPortal1",
+        "label": "SIGNAL PROBE",
+        "challenge": "Train Echo on a real pickup-and-return route to power the next portal.",
+        "requirements": [
+          "latch",
+          "securityLever1",
+          "patchRelaySocket1"
+        ],
+        "startId": "lower",
+        "phase": 0,
+        "requiredCapability": "lesson-recovery"
+      },
+      {
+        "id": "relay-2",
+        "dockId": "relayDock2",
+        "gateId": "patchPortal3",
+        "label": "PRESSURE PROBE",
+        "challenge": "Re-train the same honest learner for this room’s shifted start and hazard phase.",
+        "requirements": [
+          "latch",
+          "securityLever1",
+          "patchRelaySocket1",
+          "securityLever2",
+          "securityLever3",
+          "patchRelaySocket2"
+        ],
+        "startId": "upper",
+        "phase": 1,
+        "requiredCapability": "lesson-recovery"
+      },
+      {
+        "id": "relay-3",
+        "dockId": "relayDock3",
+        "gateId": "patchPortal4",
+        "label": "HAZARD PROBE",
+        "challenge": "Re-train the same honest learner for this room’s shifted start and hazard phase.",
+        "requirements": [
+          "latch",
+          "securityLever1",
+          "patchRelaySocket1",
+          "securityLever2",
+          "securityLever3",
+          "patchRelaySocket2",
+          "securityLever4",
+          "patchRelaySocket3"
+        ],
+        "startId": "middle",
+        "phase": 2,
+        "requiredCapability": "lesson-recovery"
+      },
+      {
+        "id": "relay-4",
+        "dockId": "relayDock4",
+        "gateId": "patchPortal6",
+        "label": "NIGHT PROBE",
+        "challenge": "Re-train the same honest learner for this room’s shifted start and hazard phase.",
+        "requirements": [
+          "latch",
+          "securityLever1",
+          "patchRelaySocket1",
+          "securityLever2",
+          "securityLever3",
+          "patchRelaySocket2",
+          "securityLever4",
+          "patchRelaySocket3",
+          "securityLever5",
+          "securityLever6",
+          "patchRelaySocket4"
+        ],
+        "startId": "lower",
+        "phase": 3,
+        "requiredCapability": "lesson-recovery"
+      },
+      {
+        "id": "live-delivery",
+        "dockId": "practiceDock",
+        "gateId": null,
+        "label": "LIVE DELIVERY",
+        "challenge": "Train or verify the cartridge for the real cargo run. This frozen deployment decides the mission.",
+        "requirements": [
+          "latch",
+          "securityLever1",
+          "patchRelaySocket1",
+          "securityLever2",
+          "securityLever3",
+          "patchRelaySocket2",
+          "securityLever4",
+          "patchRelaySocket3",
+          "securityLever5",
+          "securityLever6",
+          "patchRelaySocket4",
+          "receiverControl",
+          "patchRelaySocket5"
+        ],
+        "startId": "upper",
+        "phase": 4,
+        "requiresReceiver": true,
+        "final": true,
+        "requiredCapability": "lesson-recovery"
+      }
+    ],
+    "echoActivationCount": 5,
+    "dualPanelFlowVersion": "relay-portals-v1",
+    "patchPowerPuzzleCount": 5,
+    "patchPowerFlowVersion": "relay-cells-v1",
+    "twinGridVersion": "20x20-portals-v2",
+    "completionInteraction": "patchExit",
+    "solutionRamp": "authored-2-3-4-5-v1",
+    "solutionProgram": {
+      "id": "L51-solution-v1",
+      "schemaVersion": 1,
+      "stepCount": 35,
+      "echoRuns": 5
+    }
+  },
+  "observation": {
+    "profileId": "central-tower-state-v1",
+    "encoderId": "compact-imitation-v1",
+    "fields": [
+      "x",
+      "y",
+      "facing",
+      "cargo",
+      "required-mask",
+      "gate-mask",
+      "hazard-phase",
+      "remaining-time"
+    ]
+  },
+  "learning": {
+    "mode": "behavioral-cloning",
+    "allowedAlgorithms": [
+      "behavioral-cloning"
+    ],
+    "exposedControls": [
+      "epochs",
+      "start"
+    ],
+    "controls": [
+      {
+        "id": "epochs",
+        "label": "Imitation passes",
+        "items": [
+          [
+            "8",
+            "Eight passes"
+          ],
+          [
+            "12",
+            "Twelve passes"
+          ],
+          [
+            "20",
+            "Twenty passes"
+          ]
+        ]
+      },
+      {
+        "id": "start",
+        "label": "Demonstration start",
+        "items": [
+          [
+            "lower",
+            "Lower terminal"
+          ],
+          [
+            "upper",
+            "Upper terminal"
+          ],
+          [
+            "middle",
+            "Midway terminal"
+          ]
+        ]
+      }
+    ],
+    "defaults": {
+      "encoder": "relational",
+      "epochs": "20",
+      "start": "lower"
+    },
+    "starts": [
+      {
+        "id": "lower",
+        "label": "Lower terminal",
+        "x": 9,
+        "y": 9,
+        "room": 0
+      },
+      {
+        "id": "upper",
+        "label": "Upper terminal",
+        "x": 9,
+        "y": 10,
+        "room": 0
+      },
+      {
+        "id": "middle",
+        "label": "Midway terminal",
+        "x": 8,
+        "y": 9,
+        "room": 0
+      }
+    ],
+    "hiddenSize": 16,
+    "maxExamples": 512,
+    "episodesPerBatch": 1,
+    "model": {},
+    "echoGeometry": {
+      "width": 16,
+      "height": 10
+    },
+    "capabilityPuzzle": {
+      "group": "L51-fork",
+      "required": "lesson-recovery",
+      "options": [
+        "lesson-recovery",
+        "lesson-short",
+        "signal-sparse"
+      ]
+    },
+    "capabilityVersion": "physical-cartridges-v1",
+    "puzzleFocus": "state",
+    "echoThreatVersion": "patrol-state-v1"
+  },
+  "reward": {
+    "id": "c11-imitation-v1",
+    "weights": {
+      "delivery": 28,
+      "requiredPickup": 6,
+      "gate": 2,
+      "step": -0.05,
+      "progress": 1.25,
+      "caught": -18,
+      "scrap": 0
+    },
+    "oneShotEvents": [
+      "pickup",
+      "gate-open",
+      "delivery"
+    ]
+  },
+  "seeds": {
+    "root": 51051,
+    "domains": [
+      "train",
+      "validation",
+      "audit",
+      "environment",
+      "network",
+      "replay"
+    ]
+  },
+  "evaluation": {
+    "snapshotMode": "frozen",
+    "protocolId": "frozen-imitation-clear-v1",
+    "epsilon": 0
+  },
+  "medals": [
+    "clear"
+  ],
+  "cues": [
+    {
+      "event": "delivery",
+      "audio": "echo_delivery"
+    },
+    {
+      "event": "mission-clear",
+      "audio": "stinger_heist_clear"
+    }
+  ],
+  "validation": {
+    "referenceRecipeId": "l51-reference-v1",
+    "testedContentHash": null
+  },
+  "playfields": {
+    "version": "twin-grid-v2",
+    "size": 20,
+    "border": 1,
+    "patch": [
+      {
+        "id": "patch-1",
+        "tiles": [
+          "####################",
+          "##.........#...#...#",
+          "#.##.........#...#.#",
+          "#..#..###..#...#...#",
+          "#.###..#.#....#...##",
+          "#.........#.#......#",
+          "##.....#.......#.#.#",
+          "#..#.#......#....#.#",
+          "##.###....#..#..####",
+          "#.#........##.##...#",
+          "#..#.......#.......#",
+          "##.#.##........#.###",
+          "##......#........###",
+          "##............#....#",
+          "###...#..#.......#.#",
+          "#...##.....#.#...###",
+          "##.#........##.#...#",
+          "###..##..##.#.....##",
+          "#...#.......#.##...#",
+          "####################"
+        ]
+      },
+      {
+        "id": "patch-2",
+        "tiles": [
+          "####################",
+          "#..#.....##..###..##",
+          "##.#......#....#.#.#",
+          "##......#..........#",
+          "#..#.....###.......#",
+          "#........##..#...#.#",
+          "#..#....#...#..#...#",
+          "##...#.##.....#...##",
+          "#....#...#....#..#.#",
+          "##..#...#..........#",
+          "####..#.#..........#",
+          "#..#..#...#....##..#",
+          "##...###...#...#...#",
+          "#..#....#..........#",
+          "#.##.#...........###",
+          "##.##...###..#....##",
+          "#...#..#...###.#...#",
+          "##..#.##.#...##...##",
+          "#............##...##",
+          "####################"
+        ]
+      },
+      {
+        "id": "patch-3",
+        "tiles": [
+          "####################",
+          "##.................#",
+          "##...#.....#.#.#.#.#",
+          "##..###..##.....#..#",
+          "#......#.#.#..###..#",
+          "##...........#.....#",
+          "#...#...###.......##",
+          "#..........###.##..#",
+          "#..##.#.#...##.#.#.#",
+          "#...#..#..###......#",
+          "#.#......###.......#",
+          "#........#....###.##",
+          "#.#...#..#.....#..##",
+          "##.....##..#.......#",
+          "##....##.#..#.#....#",
+          "###.#.....###..#...#",
+          "#.....#..#...#..##.#",
+          "##.#........#...#..#",
+          "#..........#..#....#",
+          "####################"
+        ]
+      },
+      {
+        "id": "patch-4",
+        "tiles": [
+          "####################",
+          "#..#....###....#...#",
+          "#......##...#...#..#",
+          "#........#.#....##.#",
+          "#..#..#......#.....#",
+          "#..#.####...#.....##",
+          "#...##...#..#..#.###",
+          "#....#..#.#...#..#.#",
+          "#.#.###.......#.#..#",
+          "#..#....#...#......#",
+          "#.#.#.......#..#...#",
+          "#.#..#..........#..#",
+          "#.#......#...##.#..#",
+          "#...#.#.#..........#",
+          "#......#..#.#......#",
+          "#.#...#####.##.#.#.#",
+          "#...##..#...##..#.##",
+          "##.....#...##......#",
+          "#...#....#.....#.#.#",
+          "####################"
+        ]
+      },
+      {
+        "id": "patch-5",
+        "tiles": [
+          "####################",
+          "#......#..##..#..###",
+          "#.#...#......#..##.#",
+          "#..#...##..###..#..#",
+          "#....#.##.##...#...#",
+          "#..........##....#.#",
+          "#........#..#..#.#.#",
+          "#.#...#..#..#.#....#",
+          "##...#.#.....#....##",
+          "#.#....#.#.........#",
+          "#.#..##.#......#...#",
+          "#...#....#..#...#.##",
+          "#..##.#............#",
+          "#.##.#.##..#....#..#",
+          "#....#...#...##....#",
+          "#...............##.#",
+          "##..#..##......#...#",
+          "#....##...#..#....##",
+          "#.###...#.##....#..#",
+          "####################"
+        ]
+      },
+      {
+        "id": "patch-6",
+        "tiles": [
+          "####################",
+          "##.#....#...#...##.#",
+          "#........##....#...#",
+          "#.##..#.#..........#",
+          "#......#....#..#...#",
+          "##...##...#.....#.##",
+          "####....#.###.#....#",
+          "#.#.....#.##....#.##",
+          "#..#...#...........#",
+          "#..#...###....#..#.#",
+          "#...##.......##.#.##",
+          "#...#...##........##",
+          "#...#...#..#...##..#",
+          "#.#..............###",
+          "#..#..#.#......#..##",
+          "#.##..##...#....##.#",
+          "#.......#.#........#",
+          "#.#.###...#........#",
+          "##..#.....#..#.#.#.#",
+          "####################"
+        ]
+      },
+      {
+        "id": "patch-7",
+        "tiles": [
+          "####################",
+          "##...#....#.#..#.#.#",
+          "####....#..........#",
+          "#...#..#......#..###",
+          "#.#.###......#.#..##",
+          "#....#...........#.#",
+          "#.#..#.....#...##..#",
+          "##...###...#..#....#",
+          "#....#..#...##.###.#",
+          "###....#.#......#..#",
+          "##...#...#..#.....##",
+          "#..#.....#.##......#",
+          "#.#..##..#.........#",
+          "#...#...#...#.##.#.#",
+          "#.#.##.#......#.#..#",
+          "##..............#..#",
+          "###.#.##.....###...#",
+          "#..##......#.......#",
+          "#.........#.....#..#",
+          "####################"
+        ]
+      }
+    ],
+    "echo": [
+      {
+        "id": "echo-1",
+        "tiles": [
+          "####################",
+          "#####....##........#",
+          "#...####..###.#....#",
+          "#...#.#...##.....#.#",
+          "##.##...##.....#...#",
+          "#...#...........##.#",
+          "##.............###.#",
+          "#..............#...#",
+          "##.................#",
+          "#..##..............#",
+          "##.##..............#",
+          "##.#...........###.#",
+          "##.##.........#.#.##",
+          "#..#............#.##",
+          "#..#.#.#....#.###.##",
+          "##.....##.........##",
+          "#####.###..#.......#",
+          "#...#.#.....##...#.#",
+          "#.#....#..###..#####",
+          "####################"
+        ]
+      },
+      {
+        "id": "echo-2",
+        "tiles": [
+          "####################",
+          "#.##..#..#....##..##",
+          "#.##......#..#.#...#",
+          "#..#.#.##.#......###",
+          "#...##.#..#.#....###",
+          "##.............#...#",
+          "#..#.............#.#",
+          "#..#..........#...##",
+          "#####..........#####",
+          "#..#..............##",
+          "##................##",
+          "##.#...............#",
+          "##.##...........#.##",
+          "#.###..........#...#",
+          "#.###.#.####...#.###",
+          "#....#.....#.##....#",
+          "##......#..#.#..#..#",
+          "#..##...#..#....#..#",
+          "##.#.......#.#..##.#",
+          "####################"
+        ]
+      },
+      {
+        "id": "echo-3",
+        "tiles": [
+          "####################",
+          "#.##..##.....##..###",
+          "#....#..##.#......##",
+          "#.#...#...#.#.###..#",
+          "#.#.#.#...#..#.....#",
+          "###.#.........##..##",
+          "#...#.........##...#",
+          "##.................#",
+          "#..#...........#...#",
+          "#..#...........###.#",
+          "###...........##..##",
+          "#.............###..#",
+          "###................#",
+          "##............###.##",
+          "###...#...#...###..#",
+          "#......##..#..#.#..#",
+          "###.....#.##..#....#",
+          "#...###...#..##....#",
+          "#..####.#........###",
+          "####################"
+        ]
+      },
+      {
+        "id": "echo-4",
+        "tiles": [
+          "####################",
+          "##.#......#.....#..#",
+          "##...#..#..#......##",
+          "##.#.#..##.##.#..###",
+          "#..###...##.##.....#",
+          "#####.............##",
+          "##................##",
+          "#.#............##.##",
+          "#...#..........#####",
+          "#..#..........#....#",
+          "#..#...........##..#",
+          "#.#.#..........#..##",
+          "##..#.........##.#.#",
+          "##.................#",
+          "##...#..####..#..#.#",
+          "#...#....#..#..##..#",
+          "#.###.....#.#....###",
+          "#.#...##.#......##.#",
+          "#..##....##........#",
+          "####################"
+        ]
+      },
+      {
+        "id": "echo-5",
+        "tiles": [
+          "####################",
+          "#.....##......#..#.#",
+          "##....##...##..#...#",
+          "##.#....#.##...#...#",
+          "##.###.##.###....#.#",
+          "##.#...........#..##",
+          "#..#.............#.#",
+          "#.............#.##.#",
+          "#.#................#",
+          "#..##.........###..#",
+          "###...........#.#.##",
+          "####.............###",
+          "#.............##...#",
+          "##.............##..#",
+          "##..##.####.##.....#",
+          "#.###..#..#.#.#....#",
+          "#....#...#..#.#...##",
+          "#...##.#..#.....#..#",
+          "#.#.....#...#..#..##",
+          "####################"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "L02-solution-v1",
+  "levelId": "L02",
+  "title": "Shiny Distractions",
+  "mechanic": {
+    "district": "C01",
+    "mode": "q-learning",
+    "focus": "actions",
+    "requiredCapability": "act-east"
+  },
+  "patchRoute": [
+    "patchRelayCell1",
+    "patchRelaySocket1"
+  ],
+  "echoRuns": 1,
+  "stages": [
+    {
+      "index": 0,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "act-east",
+      "patchSteps": [
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 0
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 0
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "q-learning",
+          "focus": "actions",
+          "requiresCapability": "act-east",
+          "authoredBatch": {
+            "episodes": 1800,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 0
+    }
+  ],
+  "stepCount": 5,
+  "complexity": {
+    "mission": 2,
+    "patchRooms": 1,
+    "echoRooms": 1,
+    "echoRuns": 1,
+    "programSteps": 5
+  }
+}

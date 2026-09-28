@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "L03-solution-v1",
+  "levelId": "L03",
+  "title": "The Long Way Round",
+  "mechanic": {
+    "district": "C01",
+    "mode": "q-learning",
+    "focus": "reward",
+    "requiredCapability": "future-far"
+  },
+  "patchRoute": [
+    "securityLever1",
+    "patchRelayCell1",
+    "patchRelaySocket1"
+  ],
+  "echoRuns": 1,
+  "stages": [
+    {
+      "index": 0,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "future-far",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 0
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 0
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "q-learning",
+          "focus": "reward",
+          "requiresCapability": "future-far",
+          "authoredBatch": {
+            "episodes": 1800,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 1
+    }
+  ],
+  "stepCount": 6,
+  "complexity": {
+    "mission": 3,
+    "patchRooms": 2,
+    "echoRooms": 1,
+    "echoRuns": 1,
+    "programSteps": 6
+  }
+}

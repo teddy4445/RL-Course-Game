@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "id": "L28-solution-v1",
+  "levelId": "L28",
+  "title": "Every Tile Is Not Special",
+  "mechanic": {
+    "district": "C06",
+    "mode": "linear-sarsa",
+    "focus": "reward",
+    "requiredCapability": "sense-beacon"
+  },
+  "patchRoute": [
+    "latch",
+    "securityLever1",
+    "securityLever2",
+    "patchRelayCell1",
+    "patchRelaySocket1",
+    "relayDock1",
+    "securityLever3",
+    "receiverControl",
+    "patchRelayCell2",
+    "patchRelaySocket2",
+    "practiceDock"
+  ],
+  "echoRuns": 2,
+  "stages": [
+    {
+      "index": 0,
+      "id": "relay-1",
+      "label": "SIGNAL PROBE",
+      "requiredCapability": "sense-beacon",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "latch",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever2",
+          "room": 1
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 1
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 1
+        },
+        {
+          "op": "collect-capability",
+          "targetId": "capability2",
+          "room": 1,
+          "capabilityId": "sense-beacon"
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock1",
+          "room": 1
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "linear-sarsa",
+          "focus": "reward",
+          "requiresCapability": "sense-beacon",
+          "authoredBatch": {
+            "episodes": 450,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal2"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "sense-beacon",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever3",
+          "room": 2
+        },
+        {
+          "op": "interact",
+          "targetId": "receiverControl",
+          "room": 3
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell2",
+          "room": 3
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket2",
+          "room": 3
+        },
+        {
+          "op": "interact",
+          "targetId": "practiceDock",
+          "room": 3
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "linear-sarsa",
+          "focus": "reward",
+          "requiresCapability": "sense-beacon",
+          "authoredBatch": {
+            "episodes": 450,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 3
+    }
+  ],
+  "stepCount": 17,
+  "complexity": {
+    "mission": 28,
+    "patchRooms": 4,
+    "echoRooms": 2,
+    "echoRuns": 2,
+    "programSteps": 17
+  }
+}

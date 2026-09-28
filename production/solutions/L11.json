@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "L11-solution-v1",
+  "levelId": "L11",
+  "title": "Wrong Turn",
+  "mechanic": {
+    "district": "C03",
+    "mode": "policy-improvement",
+    "focus": "state",
+    "requiredCapability": "policy-safe"
+  },
+  "patchRoute": [
+    "latch",
+    "securityLever1",
+    "securityLever2",
+    "patchRelayCell1",
+    "patchRelaySocket1",
+    "relayDock1",
+    "receiverControl",
+    "patchRelayCell2",
+    "patchRelaySocket2",
+    "practiceDock"
+  ],
+  "echoRuns": 2,
+  "stages": [
+    {
+      "index": 0,
+      "id": "relay-1",
+      "label": "SIGNAL PROBE",
+      "requiredCapability": "policy-safe",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "latch",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "interact",
+          "targetId": "securityLever2",
+          "room": 1
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 1
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 1
+        },
+        {
+          "op": "collect-capability",
+          "targetId": "capability1",
+          "room": 1,
+          "capabilityId": "policy-safe"
+        },
+        {
+          "op": "interact",
+          "targetId": "relayDock1",
+          "room": 1
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "policy-improvement",
+          "focus": "state",
+          "requiresCapability": "policy-safe",
+          "authoredBatch": {
+            "sweeps": 64
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal2"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "policy-safe",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "receiverControl",
+          "room": 2
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell2",
+          "room": 2
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket2",
+          "room": 2
+        },
+        {
+          "op": "interact",
+          "targetId": "practiceDock",
+          "room": 2
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "policy-improvement",
+          "focus": "state",
+          "requiresCapability": "policy-safe",
+          "authoredBatch": {
+            "sweeps": 64
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 2
+    }
+  ],
+  "stepCount": 16,
+  "complexity": {
+    "mission": 11,
+    "patchRooms": 3,
+    "echoRooms": 2,
+    "echoRuns": 2,
+    "programSteps": 16
+  }
+}

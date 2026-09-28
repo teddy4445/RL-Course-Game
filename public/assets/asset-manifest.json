@@ -1,0 +1,878 @@
+{
+  "schemaVersion": 1,
+  "style": "C01 vector production v1",
+  "tileSize": 64,
+  "characters": {
+    "patch": {
+      "image": "characters/patch-atlas.png",
+      "atlas": "characters/patch-atlas.json",
+      "frameSize": [
+        128,
+        128
+      ],
+      "footAnchor": [
+        64,
+        106
+      ],
+      "collisionFootprint": [
+        0.42,
+        0.42
+      ],
+      "animations": {
+        "idle_south": {
+          "frames": [
+            "patch_idle_south_00",
+            "patch_idle_south_01",
+            "patch_idle_south_02",
+            "patch_idle_south_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "idle_west": {
+          "frames": [
+            "patch_idle_west_00",
+            "patch_idle_west_01",
+            "patch_idle_west_02",
+            "patch_idle_west_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "idle_east": {
+          "frames": [
+            "patch_idle_east_00",
+            "patch_idle_east_01",
+            "patch_idle_east_02",
+            "patch_idle_east_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "idle_north": {
+          "frames": [
+            "patch_idle_north_00",
+            "patch_idle_north_01",
+            "patch_idle_north_02",
+            "patch_idle_north_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "walk_south": {
+          "frames": [
+            "patch_walk_south_00",
+            "patch_walk_south_01",
+            "patch_walk_south_02",
+            "patch_walk_south_03",
+            "patch_walk_south_04",
+            "patch_walk_south_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "walk_west": {
+          "frames": [
+            "patch_walk_west_00",
+            "patch_walk_west_01",
+            "patch_walk_west_02",
+            "patch_walk_west_03",
+            "patch_walk_west_04",
+            "patch_walk_west_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "walk_east": {
+          "frames": [
+            "patch_walk_east_00",
+            "patch_walk_east_01",
+            "patch_walk_east_02",
+            "patch_walk_east_03",
+            "patch_walk_east_04",
+            "patch_walk_east_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "walk_north": {
+          "frames": [
+            "patch_walk_north_00",
+            "patch_walk_north_01",
+            "patch_walk_north_02",
+            "patch_walk_north_03",
+            "patch_walk_north_04",
+            "patch_walk_north_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "interact_south": {
+          "frames": [
+            "patch_interact_south_00",
+            "patch_interact_south_01",
+            "patch_interact_south_02",
+            "patch_interact_south_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "interact_west": {
+          "frames": [
+            "patch_interact_west_00",
+            "patch_interact_west_01",
+            "patch_interact_west_02",
+            "patch_interact_west_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "interact_east": {
+          "frames": [
+            "patch_interact_east_00",
+            "patch_interact_east_01",
+            "patch_interact_east_02",
+            "patch_interact_east_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "interact_north": {
+          "frames": [
+            "patch_interact_north_00",
+            "patch_interact_north_01",
+            "patch_interact_north_02",
+            "patch_interact_north_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "carry_south": {
+          "frames": [
+            "patch_carry_south_00",
+            "patch_carry_south_01",
+            "patch_carry_south_02",
+            "patch_carry_south_03",
+            "patch_carry_south_04",
+            "patch_carry_south_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "carry_west": {
+          "frames": [
+            "patch_carry_west_00",
+            "patch_carry_west_01",
+            "patch_carry_west_02",
+            "patch_carry_west_03",
+            "patch_carry_west_04",
+            "patch_carry_west_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "carry_east": {
+          "frames": [
+            "patch_carry_east_00",
+            "patch_carry_east_01",
+            "patch_carry_east_02",
+            "patch_carry_east_03",
+            "patch_carry_east_04",
+            "patch_carry_east_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "carry_north": {
+          "frames": [
+            "patch_carry_north_00",
+            "patch_carry_north_01",
+            "patch_carry_north_02",
+            "patch_carry_north_03",
+            "patch_carry_north_04",
+            "patch_carry_north_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "caught_south": {
+          "frames": [
+            "patch_caught_south_00",
+            "patch_caught_south_01",
+            "patch_caught_south_02",
+            "patch_caught_south_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "caught_west": {
+          "frames": [
+            "patch_caught_west_00",
+            "patch_caught_west_01",
+            "patch_caught_west_02",
+            "patch_caught_west_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "caught_east": {
+          "frames": [
+            "patch_caught_east_00",
+            "patch_caught_east_01",
+            "patch_caught_east_02",
+            "patch_caught_east_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "caught_north": {
+          "frames": [
+            "patch_caught_north_00",
+            "patch_caught_north_01",
+            "patch_caught_north_02",
+            "patch_caught_north_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_south": {
+          "frames": [
+            "patch_celebrate_south_00",
+            "patch_celebrate_south_01",
+            "patch_celebrate_south_02",
+            "patch_celebrate_south_03",
+            "patch_celebrate_south_04",
+            "patch_celebrate_south_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_west": {
+          "frames": [
+            "patch_celebrate_west_00",
+            "patch_celebrate_west_01",
+            "patch_celebrate_west_02",
+            "patch_celebrate_west_03",
+            "patch_celebrate_west_04",
+            "patch_celebrate_west_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_east": {
+          "frames": [
+            "patch_celebrate_east_00",
+            "patch_celebrate_east_01",
+            "patch_celebrate_east_02",
+            "patch_celebrate_east_03",
+            "patch_celebrate_east_04",
+            "patch_celebrate_east_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_north": {
+          "frames": [
+            "patch_celebrate_north_00",
+            "patch_celebrate_north_01",
+            "patch_celebrate_north_02",
+            "patch_celebrate_north_03",
+            "patch_celebrate_north_04",
+            "patch_celebrate_north_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "charge_south": {
+          "frames": [
+            "patch_charge_south_00",
+            "patch_charge_south_01",
+            "patch_charge_south_02",
+            "patch_charge_south_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "charge_west": {
+          "frames": [
+            "patch_charge_west_00",
+            "patch_charge_west_01",
+            "patch_charge_west_02",
+            "patch_charge_west_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "charge_east": {
+          "frames": [
+            "patch_charge_east_00",
+            "patch_charge_east_01",
+            "patch_charge_east_02",
+            "patch_charge_east_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "charge_north": {
+          "frames": [
+            "patch_charge_north_00",
+            "patch_charge_north_01",
+            "patch_charge_north_02",
+            "patch_charge_north_03"
+          ],
+          "fps": 5,
+          "loop": true
+        }
+      }
+    },
+    "echo": {
+      "image": "characters/echo-atlas.png",
+      "atlas": "characters/echo-atlas.json",
+      "frameSize": [
+        128,
+        128
+      ],
+      "footAnchor": [
+        64,
+        106
+      ],
+      "collisionFootprint": [
+        0.42,
+        0.42
+      ],
+      "animations": {
+        "idle_south": {
+          "frames": [
+            "echo_idle_south_00",
+            "echo_idle_south_01",
+            "echo_idle_south_02",
+            "echo_idle_south_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "idle_west": {
+          "frames": [
+            "echo_idle_west_00",
+            "echo_idle_west_01",
+            "echo_idle_west_02",
+            "echo_idle_west_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "idle_east": {
+          "frames": [
+            "echo_idle_east_00",
+            "echo_idle_east_01",
+            "echo_idle_east_02",
+            "echo_idle_east_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "idle_north": {
+          "frames": [
+            "echo_idle_north_00",
+            "echo_idle_north_01",
+            "echo_idle_north_02",
+            "echo_idle_north_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "walk_south": {
+          "frames": [
+            "echo_walk_south_00",
+            "echo_walk_south_01",
+            "echo_walk_south_02",
+            "echo_walk_south_03",
+            "echo_walk_south_04",
+            "echo_walk_south_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "walk_west": {
+          "frames": [
+            "echo_walk_west_00",
+            "echo_walk_west_01",
+            "echo_walk_west_02",
+            "echo_walk_west_03",
+            "echo_walk_west_04",
+            "echo_walk_west_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "walk_east": {
+          "frames": [
+            "echo_walk_east_00",
+            "echo_walk_east_01",
+            "echo_walk_east_02",
+            "echo_walk_east_03",
+            "echo_walk_east_04",
+            "echo_walk_east_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "walk_north": {
+          "frames": [
+            "echo_walk_north_00",
+            "echo_walk_north_01",
+            "echo_walk_north_02",
+            "echo_walk_north_03",
+            "echo_walk_north_04",
+            "echo_walk_north_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "interact_south": {
+          "frames": [
+            "echo_interact_south_00",
+            "echo_interact_south_01",
+            "echo_interact_south_02",
+            "echo_interact_south_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "interact_west": {
+          "frames": [
+            "echo_interact_west_00",
+            "echo_interact_west_01",
+            "echo_interact_west_02",
+            "echo_interact_west_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "interact_east": {
+          "frames": [
+            "echo_interact_east_00",
+            "echo_interact_east_01",
+            "echo_interact_east_02",
+            "echo_interact_east_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "interact_north": {
+          "frames": [
+            "echo_interact_north_00",
+            "echo_interact_north_01",
+            "echo_interact_north_02",
+            "echo_interact_north_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "carry_south": {
+          "frames": [
+            "echo_carry_south_00",
+            "echo_carry_south_01",
+            "echo_carry_south_02",
+            "echo_carry_south_03",
+            "echo_carry_south_04",
+            "echo_carry_south_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "carry_west": {
+          "frames": [
+            "echo_carry_west_00",
+            "echo_carry_west_01",
+            "echo_carry_west_02",
+            "echo_carry_west_03",
+            "echo_carry_west_04",
+            "echo_carry_west_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "carry_east": {
+          "frames": [
+            "echo_carry_east_00",
+            "echo_carry_east_01",
+            "echo_carry_east_02",
+            "echo_carry_east_03",
+            "echo_carry_east_04",
+            "echo_carry_east_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "carry_north": {
+          "frames": [
+            "echo_carry_north_00",
+            "echo_carry_north_01",
+            "echo_carry_north_02",
+            "echo_carry_north_03",
+            "echo_carry_north_04",
+            "echo_carry_north_05"
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "caught_south": {
+          "frames": [
+            "echo_caught_south_00",
+            "echo_caught_south_01",
+            "echo_caught_south_02",
+            "echo_caught_south_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "caught_west": {
+          "frames": [
+            "echo_caught_west_00",
+            "echo_caught_west_01",
+            "echo_caught_west_02",
+            "echo_caught_west_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "caught_east": {
+          "frames": [
+            "echo_caught_east_00",
+            "echo_caught_east_01",
+            "echo_caught_east_02",
+            "echo_caught_east_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "caught_north": {
+          "frames": [
+            "echo_caught_north_00",
+            "echo_caught_north_01",
+            "echo_caught_north_02",
+            "echo_caught_north_03"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_south": {
+          "frames": [
+            "echo_celebrate_south_00",
+            "echo_celebrate_south_01",
+            "echo_celebrate_south_02",
+            "echo_celebrate_south_03",
+            "echo_celebrate_south_04",
+            "echo_celebrate_south_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_west": {
+          "frames": [
+            "echo_celebrate_west_00",
+            "echo_celebrate_west_01",
+            "echo_celebrate_west_02",
+            "echo_celebrate_west_03",
+            "echo_celebrate_west_04",
+            "echo_celebrate_west_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_east": {
+          "frames": [
+            "echo_celebrate_east_00",
+            "echo_celebrate_east_01",
+            "echo_celebrate_east_02",
+            "echo_celebrate_east_03",
+            "echo_celebrate_east_04",
+            "echo_celebrate_east_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "celebrate_north": {
+          "frames": [
+            "echo_celebrate_north_00",
+            "echo_celebrate_north_01",
+            "echo_celebrate_north_02",
+            "echo_celebrate_north_03",
+            "echo_celebrate_north_04",
+            "echo_celebrate_north_05"
+          ],
+          "fps": 5,
+          "loop": false
+        },
+        "charge_south": {
+          "frames": [
+            "echo_charge_south_00",
+            "echo_charge_south_01",
+            "echo_charge_south_02",
+            "echo_charge_south_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "charge_west": {
+          "frames": [
+            "echo_charge_west_00",
+            "echo_charge_west_01",
+            "echo_charge_west_02",
+            "echo_charge_west_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "charge_east": {
+          "frames": [
+            "echo_charge_east_00",
+            "echo_charge_east_01",
+            "echo_charge_east_02",
+            "echo_charge_east_03"
+          ],
+          "fps": 5,
+          "loop": true
+        },
+        "charge_north": {
+          "frames": [
+            "echo_charge_north_00",
+            "echo_charge_north_01",
+            "echo_charge_north_02",
+            "echo_charge_north_03"
+          ],
+          "fps": 5,
+          "loop": true
+        }
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "crate",
+      "image": "objects/crate.png",
+      "source": "objects/crate.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "battery",
+      "image": "objects/battery.png",
+      "source": "objects/battery.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "fuse",
+      "image": "objects/fuse.png",
+      "source": "objects/fuse.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "power-cell",
+      "image": "objects/power-cell.png",
+      "source": "objects/power-cell.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "token",
+      "image": "objects/token.png",
+      "source": "objects/token.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "scrap",
+      "image": "objects/scrap.png",
+      "source": "objects/scrap.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "socket",
+      "image": "objects/socket.png",
+      "source": "objects/socket.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "socket-on",
+      "image": "objects/socket-on.png",
+      "source": "objects/socket-on.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "lever",
+      "image": "objects/lever.png",
+      "source": "objects/lever.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "lever-on",
+      "image": "objects/lever-on.png",
+      "source": "objects/lever-on.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "dock",
+      "image": "objects/dock.png",
+      "source": "objects/dock.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "dock-on",
+      "image": "objects/dock-on.png",
+      "source": "objects/dock-on.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "gate",
+      "image": "objects/gate.png",
+      "source": "objects/gate.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "gate-open",
+      "image": "objects/gate-open.png",
+      "source": "objects/gate-open.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "exit-echo",
+      "image": "objects/exit-echo.png",
+      "source": "objects/exit-echo.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "exit-patch",
+      "image": "objects/exit-patch.png",
+      "source": "objects/exit-patch.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "exit-on",
+      "image": "objects/exit-on.png",
+      "source": "objects/exit-on.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "core",
+      "image": "objects/core.png",
+      "source": "objects/core.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "laser",
+      "image": "objects/laser.png",
+      "source": "objects/laser.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "laser-off",
+      "image": "objects/laser-off.png",
+      "source": "objects/laser-off.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "barrel",
+      "image": "objects/barrel.png",
+      "source": "objects/barrel.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "vent",
+      "image": "objects/vent.png",
+      "source": "objects/vent.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "lamp",
+      "image": "objects/lamp.png",
+      "source": "objects/lamp.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "console",
+      "image": "objects/console.png",
+      "source": "objects/console.svg",
+      "frameSize": [
+        64,
+        64
+      ]
+    }
+  ],
+  "tiles": [
+    "floor-a",
+    "floor-b",
+    "floor-c",
+    "wall",
+    "echo-floor",
+    "grate",
+    "hazard-stripe"
+  ]
+}

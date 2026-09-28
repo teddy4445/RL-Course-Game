@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "L05-solution-v1",
+  "levelId": "L05",
+  "title": "Two Robots, One Exit",
+  "mechanic": {
+    "district": "C01",
+    "mode": "q-learning",
+    "focus": "policy",
+    "requiredCapability": "reward-delivery"
+  },
+  "patchRoute": [
+    "patchRelayCell1",
+    "patchRelaySocket1",
+    "securityLever1",
+    "patchRelayCell2",
+    "patchRelaySocket2"
+  ],
+  "echoRuns": 2,
+  "stages": [
+    {
+      "index": 0,
+      "id": "relay-1",
+      "label": "SIGNAL PROBE",
+      "requiredCapability": "reward-delivery",
+      "patchSteps": [
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 0
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 0
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "q-learning",
+          "focus": "policy",
+          "requiresCapability": "reward-delivery",
+          "authoredBatch": {
+            "episodes": 1800,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "open-portal",
+          "opens": "patchPortal2"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "explore-curious",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell2",
+          "room": 1
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket2",
+          "room": 1
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "q-learning",
+          "focus": "policy",
+          "requiresCapability": "explore-curious",
+          "authoredBatch": {
+            "episodes": 1800,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "collect",
+      "targetId": "relayCore",
+      "room": 2
+    },
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 2
+    }
+  ],
+  "stepCount": 11,
+  "complexity": {
+    "mission": 5,
+    "patchRooms": 3,
+    "echoRooms": 2,
+    "echoRuns": 2,
+    "programSteps": 11
+  }
+}

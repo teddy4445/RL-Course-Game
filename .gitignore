@@ -1,0 +1,15 @@
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+!.env.example
+coverage/
+playwright-report/
+test-results/
+evidence/
+echo_heist_audio_pack/
+ChatGPT Image*.png
+30d4da2b-c81b-4ac1-b248-e5b13a76cf2d.png

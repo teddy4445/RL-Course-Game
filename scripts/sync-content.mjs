@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const dir = path.join(root, 'src/content/levels');
+const files = fs.readdirSync(dir).filter(n => /^L\d+\.json$/.test(n)).sort((a,b) => Number(a.match(/\d+/)[0])-Number(b.match(/\d+/)[0]));
+if (!files.length) throw new Error('No canonical level definitions found.');
+const levels = files.map(n => {
+  const level = JSON.parse(fs.readFileSync(path.join(dir,n), 'utf8'));
+  if (n !== level.id+'.json') throw new Error('Level ID/file mismatch: '+n);
+  return level;
+});
+if (new Set(levels.map(l => l.id)).size !== levels.length) throw new Error('Duplicate level IDs.');
+const opening = JSON.parse(fs.readFileSync(path.join(root, 'production/scripts/opening.json'),'utf8'));
+if (!opening.strings || typeof opening.strings !== 'object') throw new Error('Missing opening.strings.');
+fs.writeFileSync(path.join(root,'src/content/levels.js'), '// Generated from canonical level JSON by scripts/sync-content.mjs.\nexport const LEVELS = '+JSON.stringify(levels,null,2)+';\n');
+fs.writeFileSync(path.join(root,'src/content/opening.js'), '// Text source: production/scripts/opening.json; sync with npm run sync:content.\nexport const OPENING = '+JSON.stringify(opening.strings,null,2)+';\n');
+fs.mkdirSync(path.join(root,'production/layouts'),{recursive:true});
+for (const l of levels) fs.writeFileSync(path.join(root,'production/layouts',l.id+'.json'),JSON.stringify(l,null,2)+'\n');
+console.log(`Synchronized ${levels.length} levels and opening strings. Layout PNGs are review images; regenerate them separately after geometry changes.`);

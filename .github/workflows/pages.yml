@@ -1,0 +1,70 @@
+name: Deploy Echo Heist to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked development tools
+        run: npm ci
+
+      - name: Validate source and content
+        run: |
+          npm run lint
+          npm run validate:content
+          npm test
+
+      - name: Build static game
+        run: npm run build
+
+      - name: Verify Pages artifact
+        run: |
+          test -f dist/index.html
+          test -f dist/.nojekyll
+          test -f dist/CNAME
+          test "$(cat dist/CNAME)" = "eh.teddylazebnik.com"
+          test ! -e dist/tests
+          test ! -e dist/docs
+          test ! -e dist/production
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

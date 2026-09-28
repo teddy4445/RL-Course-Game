@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "L04-solution-v1",
+  "levelId": "L04",
+  "title": "Curious Circuit",
+  "mechanic": {
+    "district": "C01",
+    "mode": "q-learning",
+    "focus": "practice",
+    "requiredCapability": "explore-curious"
+  },
+  "patchRoute": [
+    "securityLever1",
+    "patchRelayCell1",
+    "patchRelaySocket1"
+  ],
+  "echoRuns": 1,
+  "stages": [
+    {
+      "index": 0,
+      "id": "live-delivery",
+      "label": "LIVE DELIVERY",
+      "requiredCapability": "explore-curious",
+      "patchSteps": [
+        {
+          "op": "interact",
+          "targetId": "securityLever1",
+          "room": 0
+        },
+        {
+          "op": "collect",
+          "targetId": "patchRelayCell1",
+          "room": 0
+        },
+        {
+          "op": "install",
+          "targetId": "patchRelaySocket1",
+          "room": 0
+        }
+      ],
+      "echoSteps": [
+        {
+          "op": "train-echo",
+          "algorithm": "q-learning",
+          "focus": "practice",
+          "requiresCapability": "explore-curious",
+          "authoredBatch": {
+            "episodes": 1800,
+            "transitionBudget": null
+          }
+        },
+        {
+          "op": "run-echo",
+          "expected": "deliver-cargo",
+          "opens": "exitGate"
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "op": "interact",
+      "targetId": "patchExit",
+      "room": 1
+    }
+  ],
+  "stepCount": 6,
+  "complexity": {
+    "mission": 4,
+    "patchRooms": 2,
+    "echoRooms": 1,
+    "echoRuns": 1,
+    "programSteps": 6
+  }
+}
